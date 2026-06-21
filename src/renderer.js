@@ -5,12 +5,35 @@ let appState = {
   globalStatus: 'offline'  // 'offline', 'syncing', 'online', 'warning', 'error'
 };
 
+let autoRefreshIntervalId = null;
+
 // Initialize app when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
   setupNavigation();
   setupFormHandlers();
   loadAllData();
+  setupIPCListeners();
 });
+
+// Setup automatic background refresh every 10 minutes
+function startAutoRefresh() {
+  if (autoRefreshIntervalId) {
+    clearInterval(autoRefreshIntervalId);
+  }
+  autoRefreshIntervalId = setInterval(() => {
+    refreshAllAccounts();
+  }, 10 * 60 * 1000); // 10 minutes
+}
+
+// Setup real-time CLI data listeners
+function setupIPCListeners() {
+  if (window.claudeAPI && typeof window.claudeAPI.onDataChanged === 'function') {
+    window.claudeAPI.onDataChanged(() => {
+      console.log('Local Claude Code data changed. Triggering sync...');
+      refreshAllAccounts();
+    });
+  }
+}
 
 // Setup Navigation & Actions
 function setupNavigation() {
@@ -83,6 +106,9 @@ async function loadAllData() {
 // Refresh all accounts in parallel
 async function refreshAllAccounts() {
   if (appState.accounts.length === 0) return;
+
+  // Restart auto-refresh interval timer to avoid double updates
+  startAutoRefresh();
 
   appState.globalStatus = 'syncing';
   updateGlobalStatus();
