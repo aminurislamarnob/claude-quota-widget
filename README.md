@@ -21,32 +21,7 @@ A beautiful, lightweight, and modern macOS utility status bar widget built with 
 
 ## App Interface Preview 📱
 
-```
-┌──────────────────────────────────────────┐
-│  (Orange Burst Icon) Claude Quotas   [↻] [⚙] │
-├──────────────────────────────────────────┤
-│  ┌────────────────────────────────────┐  │
-│  │ 👤 Work Account              [↻]   │  │
-│  │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │  │
-│  │ 5h Session Quota (15% Used)        │  │
-│  │ [░░░░░░                        ]   │  │
-│  │ Resets Wed 12:59 AM                │  │
-│  │                                    │  │
-│  │ Weekly Limits (65% Used)           │  │
-│  │ [████████████████░░░░░░        ]   │  │
-│  │ Resets in 2 hours                  │  │
-│  └────────────────────────────────────┘  │
-│  ┌────────────────────────────────────┐  │
-│  │ 👤 Personal Account           [↻]  │  │
-│  │ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │  │
-│  │ 5h Session Quota (95% Used)   ⚠️   │  │
-│  │ [████████████████████████████░░]   │  │
-│  │ Resets in 15 mins                  │  │
-│  └────────────────────────────────────┘  │
-├──────────────────────────────────────────┤
-│  🟢 Synced           Last Updated: 18:12 │
-└──────────────────────────────────────────┘
-```
+![Claude Quota Widget Preview](assets/preview.png)
 
 ---
 
