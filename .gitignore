@@ -1,0 +1,9 @@
+node_modules/
+dist/
+mac-arm64/
+out/
+*.log
+.DS_Store
+.claude
+.gemini
+package-lock.json
